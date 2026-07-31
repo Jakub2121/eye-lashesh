@@ -1,1286 +1,452 @@
 <!DOCTYPE html>
-<html lang="pl">
+<html lang="pl" class="scroll-smooth">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="theme-color" content="#1B3B2B">
-    <meta name="description" content="Profesjonalna stylizacja rzęs i brwi. Zabiegi laminacji, objętości i geometrii brwi wykonane przez doświadczoną stylistkę.">
-    <meta name="apple-mobile-web-app-capable" content="yes">
-    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
-    <meta name="apple-mobile-web-app-title" content="Beauty Lashes Studio">
+    <title>Stylizacja Rzęs & Brwi — Portfolio</title>
+    
+    <!-- PWA Settings -->
     <link rel="manifest" href="manifest.json">
-    <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 180 180'><rect fill='%231B3B2B' width='180' height='180'/><circle cx='90' cy='50' r='20' fill='white' opacity='0.9'/><path d='M 70 80 Q 90 75 110 80 Q 90 95 70 80' fill='white' opacity='0.9'/><path d='M 70 110 Q 90 105 110 110 Q 90 125 70 110' fill='white' opacity='0.9'/></svg>">
-    
+    <meta name="theme-color" content="#FAF9F5">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="default">
+    <link rel="apple-touch-icon" href="https://images.unsplash.com/photo-1560066984-138dadb4c035?w=192&h=192&fit=crop">
+
     <!-- Google Fonts -->
-    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
-    
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/tailwindcss/3.3.5/tailwind.min.css" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+    <!-- Tailwind CSS CDN -->
     <script src="https://cdn.tailwindcss.com"></script>
-    
-    <style>
-        :root {
-            --sage-dark: #1B3B2B;
-            --sage-dark-alt: #14281D;
-            --sage-light: #D8E3D8;
-            --cream: #F7F9F6;
-            --cream-alt: #F4F6F2;
-            --text-dark: #1A1A1A;
-            --text-light: #666666;
-        }
-
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-
-        body {
-            background: linear-gradient(180deg, var(--cream) 0%, var(--cream-alt) 100%);
-            font-family: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
-            color: var(--text-dark);
-            scroll-behavior: smooth;
-            overflow-x: hidden;
-        }
-
-        /* Typography */
-        h1, h2, h3, h4, h5, h6 {
-            font-family: 'Plus Jakarta Sans', sans-serif;
-            font-weight: 800;
-            letter-spacing: -0.02em;
-        }
-
-        h1 {
-            font-size: clamp(36px, 8vw, 72px);
-            line-height: 1.1;
-        }
-
-        h2 {
-            font-size: clamp(28px, 5vw, 48px);
-            line-height: 1.2;
-        }
-
-        h3 {
-            font-size: clamp(20px, 4vw, 32px);
-        }
-
-        /* Glassmorphism */
-        .glass {
-            background: rgba(255, 255, 255, 0.6);
-            backdrop-filter: blur(12px);
-            border: 1px solid rgba(255, 255, 255, 0.7);
-        }
-
-        .glass-dark {
-            background: rgba(27, 59, 43, 0.85);
-            backdrop-filter: blur(12px);
-            border: 1px solid rgba(255, 255, 255, 0.1);
-            color: white;
-        }
-
-        /* Buttons */
-        .btn-primary {
-            background: linear-gradient(135deg, var(--sage-dark) 0%, var(--sage-dark-alt) 100%);
-            color: white;
-            padding: 14px 36px;
-            border-radius: 50px;
-            font-weight: 700;
-            font-size: 15px;
-            transition: all 0.3s ease;
-            cursor: pointer;
-            border: none;
-            display: inline-flex;
-            align-items: center;
-            gap: 8px;
-            box-shadow: 0 12px 30px rgba(27, 59, 43, 0.25);
-            text-decoration: none;
-            white-space: nowrap;
-        }
-
-        .btn-primary:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 16px 40px rgba(27, 59, 43, 0.35);
-        }
-
-        .btn-primary::after {
-            content: '→';
-            transition: transform 0.3s ease;
-        }
-
-        .btn-primary:hover::after {
-            transform: translateX(4px);
-        }
-
-        .btn-outline {
-            background: transparent;
-            color: var(--sage-dark);
-            padding: 14px 36px;
-            border: 2.5px solid var(--sage-dark);
-            border-radius: 50px;
-            font-weight: 700;
-            font-size: 15px;
-            transition: all 0.3s ease;
-            cursor: pointer;
-        }
-
-        .btn-outline:hover {
-            background: var(--sage-dark);
-            color: white;
-        }
-
-        /* Badges & Pills */
-        .pill-badge {
-            display: inline-block;
-            background: var(--sage-light);
-            color: var(--sage-dark);
-            padding: 10px 20px;
-            border-radius: 50px;
-            font-size: 13px;
-            font-weight: 700;
-            text-transform: uppercase;
-            letter-spacing: 0.5px;
-            margin-bottom: 16px;
-        }
-
-        /* Sticky Navigation */
-        nav {
-            position: fixed;
-            top: 0;
-            left: 0;
-            right: 0;
-            z-index: 50;
-            background: rgba(247, 249, 246, 0.7);
-            backdrop-filter: blur(10px);
-            border-bottom: 1px solid rgba(27, 59, 43, 0.1);
-            transition: all 0.3s ease;
-        }
-
-        nav.scrolled {
-            background: rgba(247, 249, 246, 0.95);
-            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
-        }
-
-        .nav-container {
-            max-width: 1400px;
-            margin: 0 auto;
-            padding: 16px 24px;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-        }
-
-        .logo {
-            display: flex;
-            align-items: center;
-            gap: 12px;
-            text-decoration: none;
-            color: var(--sage-dark);
-            font-weight: 800;
-            font-size: 20px;
-        }
-
-        .logo-icon {
-            width: 40px;
-            height: 40px;
-            background: linear-gradient(135deg, var(--sage-dark) 0%, var(--sage-dark-alt) 100%);
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: white;
-            font-size: 24px;
-        }
-
-        .nav-links {
-            display: flex;
-            gap: 32px;
-            align-items: center;
-        }
-
-        .nav-link {
-            color: var(--text-light);
-            text-decoration: none;
-            font-weight: 600;
-            font-size: 14px;
-            transition: color 0.3s ease;
-        }
-
-        .nav-link:hover {
-            color: var(--sage-dark);
-        }
-
-        /* Mobile Menu */
-        .mobile-menu {
-            position: fixed;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            background: var(--cream);
-            transform: translateX(-100%);
-            transition: transform 0.3s ease;
-            z-index: 40;
-            padding-top: 80px;
-            padding: 80px 24px 24px;
-        }
-
-        .mobile-menu.active {
-            transform: translateX(0);
-        }
-
-        /* Section */
-        .section {
-            padding: 80px 24px;
-        }
-
-        .container {
-            max-width: 1400px;
-            margin: 0 auto;
-        }
-
-        /* Animations */
-        @keyframes fadeInUp {
-            from {
-                opacity: 0;
-                transform: translateY(30px);
-            }
-            to {
-                opacity: 1;
-                transform: translateY(0);
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        warm: {
+                            bg: '#FAF9F5',
+                            card: '#F3F1EC',
+                            border: '#EFECE6',
+                            dark: '#1C1C1C',
+                            muted: '#8E8D8A',
+                        }
+                    },
+                    fontFamily: {
+                        sans: ['Plus Jakarta Sans', 'sans-serif'],
+                    }
+                }
             }
         }
-
-        @keyframes fadeIn {
-            from { opacity: 0; }
-            to { opacity: 1; }
-        }
-
-        .fade-in-up {
-            animation: fadeInUp 0.6s ease-out;
-        }
-
-        /* Hero Section */
-        .hero-section {
-            min-height: 100vh;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            position: relative;
-            overflow: hidden;
-            padding-top: 80px;
-        }
-
-        .hero-bg {
-            position: absolute;
-            inset: 0;
-            object-fit: cover;
-            z-index: -1;
-        }
-
-        .hero-overlay {
-            position: absolute;
-            inset: 0;
-            background: linear-gradient(135deg, rgba(27, 59, 43, 0.4) 0%, rgba(20, 40, 29, 0.3) 100%);
-            z-index: 0;
-        }
-
-        .hero-content {
-            position: relative;
-            z-index: 2;
-            width: 100%;
-            max-width: 600px;
-            padding: 60px;
-            background: rgba(255, 255, 255, 0.8);
-            backdrop-filter: blur(15px);
-            border: 1.5px solid rgba(255, 255, 255, 0.8);
-            border-radius: 40px;
-            box-shadow: 0 20px 60px rgba(27, 59, 43, 0.15);
-        }
-
-        /* Service Cards */
-        .service-card {
-            background: linear-gradient(135deg, var(--sage-dark) 0%, var(--sage-dark-alt) 100%);
-            color: white;
-            padding: 40px;
-            border-radius: 32px;
-            display: flex;
-            flex-direction: column;
-            justify-content: space-between;
-            transition: all 0.3s ease;
-            height: 100%;
-            position: relative;
-            overflow: hidden;
-        }
-
-        .service-card::before {
-            content: '';
-            position: absolute;
-            top: -50%;
-            right: -50%;
-            width: 200%;
-            height: 200%;
-            background: radial-gradient(circle, rgba(255,255,255,0.1) 0%, transparent 70%);
-            transition: all 0.3s ease;
-        }
-
-        .service-card:hover {
-            transform: translateY(-8px);
-            box-shadow: 0 24px 48px rgba(27, 59, 43, 0.25);
-        }
-
-        .service-icon {
-            font-size: 48px;
-            margin-bottom: 16px;
-        }
-
-        .service-title {
-            font-size: 20px;
-            font-weight: 800;
-            margin-bottom: 12px;
-        }
-
-        .service-description {
-            font-size: 14px;
-            opacity: 0.9;
-            margin-bottom: 24px;
-            flex-grow: 1;
-        }
-
-        .service-meta {
-            display: flex;
-            justify-content: space-between;
-            align-items: flex-end;
-        }
-
-        .service-price {
-            font-size: 32px;
-            font-weight: 800;
-        }
-
-        .service-time {
-            font-size: 13px;
-            opacity: 0.8;
-        }
-
-        /* Before/After Slider */
-        .comparison-slider {
-            position: relative;
-            width: 100%;
-            max-width: 500px;
-            margin: 0 auto;
-            overflow: hidden;
-            border-radius: 32px;
-            box-shadow: 0 16px 48px rgba(27, 59, 43, 0.2);
-        }
-
-        .comparison-slider img {
-            display: block;
-            width: 100%;
-            height: auto;
-        }
-
-        .img-wrapper {
-            position: relative;
-            width: 100%;
-        }
-
-        .img-before {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            overflow: hidden;
-        }
-
-        .img-before img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-        }
-
-        .slider-handle {
-            position: absolute;
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%);
-            width: 70px;
-            height: 70px;
-            background: white;
-            border: 3px solid var(--sage-dark);
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            cursor: ew-resize;
-            z-index: 5;
-            box-shadow: 0 8px 24px rgba(27, 59, 43, 0.3);
-            user-select: none;
-        }
-
-        .slider-handle::before,
-        .slider-handle::after {
-            content: '';
-            position: absolute;
-            width: 3px;
-            height: 24px;
-            background: var(--sage-dark);
-        }
-
-        .slider-handle::before {
-            left: 18px;
-        }
-
-        .slider-handle::after {
-            right: 18px;
-        }
-
-        .slider-line {
-            position: absolute;
-            top: 0;
-            left: 50%;
-            width: 2px;
-            height: 100%;
-            background: var(--sage-dark);
-            transform: translateX(-50%);
-            z-index: 4;
-        }
-
-        /* Tabs */
-        .tab-buttons {
-            display: flex;
-            gap: 12px;
-            margin-bottom: 40px;
-            flex-wrap: wrap;
-            border-bottom: 2px solid rgba(27, 59, 43, 0.1);
-            padding-bottom: 0;
-        }
-
-        .tab-btn {
-            background: none;
-            border: none;
-            padding: 16px 24px;
-            font-weight: 700;
-            font-size: 15px;
-            color: var(--text-light);
-            cursor: pointer;
-            border-bottom: 3px solid transparent;
-            position: relative;
-            bottom: -2px;
-            transition: all 0.3s ease;
-            font-family: 'Plus Jakarta Sans', sans-serif;
-        }
-
-        .tab-btn.active {
-            color: var(--sage-dark);
-            border-bottom-color: var(--sage-dark);
-        }
-
-        .tab-content {
-            display: none;
-        }
-
-        .tab-content.active {
-            display: block;
-            animation: fadeIn 0.3s ease;
-        }
-
-        /* Gallery Grid */
-        .gallery-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-            gap: 16px;
-        }
-
-        .gallery-item {
-            position: relative;
-            overflow: hidden;
-            border-radius: 24px;
-            aspect-ratio: 1;
-            cursor: pointer;
-        }
-
-        .gallery-item img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            transition: transform 0.3s ease;
-        }
-
-        .gallery-item:hover img {
-            transform: scale(1.08);
-        }
-
-        .gallery-overlay {
-            position: absolute;
-            inset: 0;
-            background: rgba(27, 59, 43, 0.7);
-            backdrop-filter: blur(8px);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            opacity: 0;
-            transition: opacity 0.3s ease;
-        }
-
-        .gallery-item:hover .gallery-overlay {
-            opacity: 1;
-        }
-
-        /* Contact Form */
-        .form-input {
-            width: 100%;
-            padding: 16px 20px;
-            border-radius: 16px;
-            border: 2px solid rgba(27, 59, 43, 0.15);
-            background: rgba(255, 255, 255, 0.8);
-            font-size: 15px;
-            transition: all 0.3s ease;
-            font-family: 'Plus Jakarta Sans', sans-serif;
-        }
-
-        .form-input:focus {
-            outline: none;
-            border-color: var(--sage-dark);
-            background: white;
-            box-shadow: 0 0 0 4px rgba(27, 59, 43, 0.08);
-        }
-
-        .form-input::placeholder {
-            color: #999;
-        }
-
-        select.form-input {
-            cursor: pointer;
-        }
-
-        /* Install Prompt */
-        .install-prompt {
-            position: fixed;
-            bottom: 20px;
-            left: 20px;
-            right: 20px;
-            background: white;
-            backdrop-filter: blur(12px);
-            border: 1.5px solid rgba(27, 59, 43, 0.15);
-            border-radius: 28px;
-            padding: 24px;
-            box-shadow: 0 20px 48px rgba(27, 59, 43, 0.15);
-            z-index: 30;
-            display: none;
-            animation: slideUp 0.3s ease;
-            max-width: 420px;
-        }
-
-        .install-prompt.show {
-            display: block;
-        }
-
-        @keyframes slideUp {
-            from {
-                transform: translateY(30px);
-                opacity: 0;
-            }
-            to {
-                transform: translateY(0);
-                opacity: 1;
-            }
-        }
-
-        /* Sticky Mobile Bar */
-        .sticky-mobile-bar {
-            position: fixed;
-            bottom: 0;
-            left: 0;
-            right: 0;
-            background: white;
-            backdrop-filter: blur(12px);
-            border-top: 1px solid rgba(27, 59, 43, 0.1);
-            padding: 12px;
-            display: none;
-            gap: 12px;
-            z-index: 40;
-        }
-
-        @media (max-width: 768px) {
-            .sticky-mobile-bar {
-                display: flex;
-            }
-
-            .hide-mobile {
-                display: none !important;
-            }
-
-            .hero-content {
-                padding: 40px 30px;
-            }
-
-            .section {
-                padding: 60px 20px;
-            }
-
-            .nav-links {
-                display: none;
-            }
-        }
-
-        /* Message Toast */
-        .message {
-            position: fixed;
-            top: 20px;
-            right: 20px;
-            background: var(--sage-dark);
-            color: white;
-            padding: 16px 24px;
-            border-radius: 16px;
-            z-index: 50;
-            animation: slideUp 0.3s ease;
-            max-width: 300px;
-            font-weight: 600;
-        }
-
-        .message.error {
-            background: #DC6464;
-        }
-
-        /* Helper Classes */
-        .text-muted {
-            color: var(--text-light);
-        }
-
-        .grid-cols-3 {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-            gap: 24px;
-        }
-
-        @media (max-width: 768px) {
-            .grid-cols-3 {
-                grid-template-columns: 1fr;
-            }
-        }
-    </style>
+    </script>
 </head>
-<body>
-    <!-- Navigation -->
-    <nav>
-        <div class="nav-container">
-            <a href="#" class="logo">
-                <div class="logo-icon">✨</div>
-                <div>
-                    <div>Beauty Lashes</div>
-                    <div style="font-size: 11px; font-weight: 500; color: var(--text-light);">Studio</div>
-                </div>
+<body class="bg-warm-bg text-warm-dark font-sans antialiased selection:bg-warm-dark selection:text-white pb-24 md:pb-0">
+
+    <!-- NAVIGATOR / STICKY GLASS NAVBAR -->
+    <header class="sticky top-0 z-50 bg-warm-bg/80 backdrop-blur-md border-b border-warm-border">
+        <div class="max-w-6xl mx-auto px-6 h-20 flex items-center justify-between">
+            <a href="#" class="text-lg font-bold tracking-tight text-warm-dark">
+                STUDIO BEAUTY <span class="text-xs align-top font-normal text-warm-muted">⁰¹</span>
             </a>
             
-            <div class="nav-links hide-mobile">
-                <a href="#home" class="nav-link">Home</a>
-                <a href="#before-after" class="nav-link">Przed i Po</a>
-                <a href="#about" class="nav-link">O mnie</a>
-                <a href="#services" class="nav-link">Usługi</a>
-                <a href="#gallery" class="nav-link">Galeria</a>
-                <a href="#contact" class="nav-link">Kontakt</a>
+            <nav class="hidden md:flex items-center gap-8 text-sm font-medium text-warm-muted">
+                <a href="#about" class="hover:text-warm-dark transition-colors">O mnie</a>
+                <a href="#effects" class="hover:text-warm-dark transition-colors">Efekty</a>
+                <a href="#pricing" class="hover:text-warm-dark transition-colors">Cennik</a>
+                <a href="#instagram" class="hover:text-warm-dark transition-colors">Portfolio</a>
+            </nav>
+
+            <a href="#contact" class="hidden sm:inline-flex items-center justify-center px-6 py-2.5 rounded-full bg-warm-dark text-white text-sm font-medium hover:opacity-90 transition-opacity">
+                Umów wizytę
+            </a>
+        </div>
+    </header>
+
+    <main class="max-w-6xl mx-auto px-4 sm:px-6 space-y-16 md:space-y-24 pt-6">
+
+        <!-- HERO SECTION -->
+        <section class="relative rounded-[2.5rem] bg-warm-card p-8 md:p-16 overflow-hidden min-h-[500px] flex flex-col justify-end">
+            <div class="absolute inset-0 z-0">
+                <img src="https://images.unsplash.com/photo-1522337360788-8b13dee7a37e?q=80&w=1600&auto=format&fit=crop" 
+                     alt="Stylizacja rzęs" 
+                     class="w-full h-full object-cover opacity-85">
+                <div class="absolute inset-0 bg-gradient-to-t from-warm-dark/70 via-warm-dark/20 to-transparent"></div>
             </div>
 
-            <div style="display: flex; gap: 16px; align-items: center;">
-                <button class="btn-primary hide-mobile" style="padding: 12px 28px; font-size: 14px;" onclick="document.getElementById('contact').scrollIntoView({behavior: 'smooth'})">Umów</button>
-                <button id="mobile-menu-btn" style="display: none; background: none; border: none; cursor: pointer; width: 40px; height: 40px; padding: 8px; color: var(--sage-dark);">
-                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                        <line x1="3" y1="6" x2="21" y2="6"></line>
-                        <line x1="3" y1="12" x2="21" y2="12"></line>
-                        <line x1="3" y1="18" x2="21" y2="18"></line>
-                    </svg>
-                </button>
+            <div class="relative z-10 max-w-2xl text-white space-y-6">
+                <span class="inline-block px-4 py-1.5 rounded-full bg-white/20 backdrop-blur-md text-xs font-medium tracking-wide uppercase">
+                    Natural Lash & Brow Styling ⁰¹
+                </span>
+                <h1 class="text-4xl md:text-6xl font-light tracking-tight leading-tight">
+                    Highlight your <br><span class="font-semibold">natural beauty</span>
+                </h1>
+                <p class="text-white/80 text-base md:text-lg font-light max-w-lg">
+                    Profesjonalna oprawa oczu stworzona z myślą o Twoim codziennym komforcie i eleganckim wyglądzie.
+                </p>
+                <div class="flex flex-wrap gap-4 pt-2">
+                    <a href="#pricing" class="px-6 py-3 rounded-full bg-white text-warm-dark text-sm font-semibold hover:bg-warm-bg transition-colors">
+                        Zobacz cennik
+                    </a>
+                    <a href="#contact" class="px-6 py-3 rounded-full bg-white/20 backdrop-blur-md text-white text-sm font-medium hover:bg-white/30 transition-colors border border-white/30">
+                        Napisz do mnie →
+                    </a>
+                </div>
             </div>
-        </div>
-    </nav>
+        </section>
 
-    <!-- Mobile Menu -->
-    <div class="mobile-menu" id="mobile-menu">
-        <div style="display: flex; flex-direction: column; gap: 20px;">
-            <a href="#home" class="nav-link" onclick="closeMobileMenu()" style="font-size: 18px; color: var(--sage-dark); font-weight: 700;">Home</a>
-            <a href="#before-after" class="nav-link" onclick="closeMobileMenu()" style="font-size: 18px; color: var(--sage-dark); font-weight: 700;">Przed i Po</a>
-            <a href="#about" class="nav-link" onclick="closeMobileMenu()" style="font-size: 18px; color: var(--sage-dark); font-weight: 700;">O mnie</a>
-            <a href="#services" class="nav-link" onclick="closeMobileMenu()" style="font-size: 18px; color: var(--sage-dark); font-weight: 700;">Usługi</a>
-            <a href="#gallery" class="nav-link" onclick="closeMobileMenu()" style="font-size: 18px; color: var(--sage-dark); font-weight: 700;">Galeria</a>
-            <a href="#contact" class="nav-link" onclick="closeMobileMenu()" style="font-size: 18px; color: var(--sage-dark); font-weight: 700;">Kontakt</a>
-            <button class="btn-primary" style="width: 100%; justify-content: center; margin-top: 20px;" onclick="closeMobileMenu(); document.getElementById('contact').scrollIntoView({behavior: 'smooth'})">Umów wizytę</button>
-        </div>
-    </div>
-
-    <!-- Hero Section -->
-    <section id="home" class="hero-section">
-        <img src="https://images.unsplash.com/photo-1599919957568-bc4755fbcabc?w=1200&q=80" alt="Stylizacja rzęs" class="hero-bg">
-        <div class="hero-overlay"></div>
-        
-        <div class="hero-content fade-in-up">
-            <div class="pill-badge">✨ Twoje piękno to nasza pasja</div>
-            <h1 style="color: var(--sage-dark); margin: 16px 0;">YOU GOT A TICKET TO<br>BEAUTIFUL LASHES</h1>
-            <p style="font-size: 16px; color: var(--text-light); margin: 24px 0; line-height: 1.6;">
-                Profesjonalna stylizacja rzęs i brwi w nowoczesnych technikach. Każdy zabieg to sztuka dostosowana do Twojej indywidualności.
-            </p>
-            <div style="display: flex; gap: 12px; margin-top: 32px; flex-wrap: wrap;">
-                <button class="btn-primary" onclick="document.getElementById('services').scrollIntoView({behavior: 'smooth'})">Zobacz Usługi</button>
-                <button class="btn-outline" onclick="document.getElementById('contact').scrollIntoView({behavior: 'smooth'})">Kontakt</button>
+        <!-- BEFORE / AFTER SLIDER SECTION -->
+        <section id="effects" class="space-y-8">
+            <div class="flex flex-col md:flex-row md:items-end justify-between gap-4">
+                <div>
+                    <span class="text-xs font-medium text-warm-muted tracking-widest uppercase">Efekty zabiegów ⁰²</span>
+                    <h2 class="text-3xl md:text-4xl font-light text-warm-dark mt-1">Przed & Po stylizacji</h2>
+                </div>
+                <p class="text-warm-muted text-sm max-w-xs">
+                    Przesuń suwak na zdjęciu, aby zobaczyć efekt przed oraz bezpośrednio po zabiegu.
+                </p>
             </div>
-        </div>
-    </section>
 
-    <!-- Before/After Section -->
-    <section id="before-after" class="section" style="background: var(--cream-alt);">
-        <div class="container">
-            <div class="pill-badge">📸 transformacja</div>
-            <h2 style="color: var(--sage-dark); margin-bottom: 16px;">Przed i Po</h2>
-            <p style="color: var(--text-light); font-size: 16px; margin-bottom: 60px; max-width: 500px;">
-                Spektakularne transformacje naszych klientek. Przesuń suwak aby porównać wyniki.
-            </p>
+            <div class="relative w-full max-w-4xl mx-auto h-[350px] sm:h-[480px] rounded-[2rem] overflow-hidden select-none shadow-sm border border-warm-border" id="slider-container">
+                <!-- Image After (Base) -->
+                <img src="https://images.unsplash.com/photo-1583001809873-a1284d5630be?q=80&w=1200&auto=format&fit=crop" 
+                     alt="Po zabiegu" 
+                     class="absolute inset-0 w-full h-full object-cover">
+                <span class="absolute bottom-6 right-6 bg-warm-dark/70 backdrop-blur-md text-white text-xs px-3 py-1.5 rounded-full z-10">PO</span>
 
-            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 40px;">
-                <!-- Slider 1 -->
-                <div class="fade-in-up">
-                    <div class="comparison-slider" id="slider1">
-                        <img src="https://images.unsplash.com/photo-1599919957568-bc4755fbcabc?w=600&q=80" alt="Before">
-                        <div class="img-wrapper">
-                            <div class="img-before" style="clip-path: polygon(0 0, 50% 0, 50% 100%, 0 100%);">
-                                <img src="https://images.unsplash.com/photo-1632345031374-5b9f16de4a08?w=600&q=80" alt="After">
-                            </div>
-                            <div class="slider-line" id="line1"></div>
-                            <div class="slider-handle" id="handle1"></div>
+                <!-- Image Before (Clipped) -->
+                <div class="absolute inset-0 w-1/2 overflow-hidden" id="slider-clipper">
+                    <img src="https://images.unsplash.com/photo-1512496015851-a90fb38ba796?q=80&w=1200&auto=format&fit=crop" 
+                         alt="Przed zabiegiem" 
+                         class="absolute inset-0 w-full h-full object-cover max-w-none" id="slider-before-img">
+                    <span class="absolute bottom-6 left-6 bg-warm-dark/70 backdrop-blur-md text-white text-xs px-3 py-1.5 rounded-full z-10">PRZED</span>
+                </div>
+
+                <!-- Slider Handle -->
+                <div class="absolute top-0 bottom-0 left-1/2 w-0.5 bg-white cursor-ew-resize z-20" id="slider-handle">
+                    <div class="absolute top-1/2 -translate-y-1/2 -translate-x-1/2 w-10 h-10 rounded-full bg-white shadow-lg flex items-center justify-center text-warm-dark text-xs font-bold">
+                        ↔
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ABOUT ME SECTION -->
+        <section id="about" class="grid md:grid-cols-2 gap-12 items-center bg-warm-card p-8 md:p-12 rounded-[2.5rem]">
+            <div class="relative mx-auto w-full max-w-sm">
+                <div class="aspect-[3/4] rounded-t-full rounded-b-3xl overflow-hidden shadow-sm">
+                    <img src="https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?q=80&w=800&auto=format&fit=crop" 
+                         alt="Stylistka" 
+                         class="w-full h-full object-cover">
+                </div>
+            </div>
+            
+            <div class="space-y-6">
+                <span class="text-xs font-medium text-warm-muted tracking-widest uppercase">O mnie ⁰³</span>
+                <h2 class="text-3xl md:text-4xl font-light text-warm-dark leading-tight">
+                    Cześć, zadbam o Twoje <br><span class="font-semibold">spojrzenie</span>
+                </h2>
+                <p class="text-warm-muted leading-relaxed text-sm md:text-base">
+                    Jestem certyfikowaną stylistką rzęs i brwi z wieloletnim doświadczeniem. Do każdej klientki podchodzę indywidualnie, dobierając skręt, długość oraz kształt brwi idealnie do anatomii twarzy.
+                </p>
+                <div class="grid grid-cols-2 gap-4 pt-2">
+                    <div class="p-4 rounded-2xl bg-warm-bg border border-warm-border">
+                        <div class="text-2xl font-bold text-warm-dark">100%</div>
+                        <div class="text-xs text-warm-muted mt-1">Sterylność & Bezpieczeństwo</div>
+                    </div>
+                    <div class="p-4 rounded-2xl bg-warm-bg border border-warm-border">
+                        <div class="text-2xl font-bold text-warm-dark">15+</div>
+                        <div class="text-xs text-warm-muted mt-1">Ukończonych Certyfikatów</div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- PRICING SECTION -->
+        <section id="pricing" class="space-y-8">
+            <div>
+                <span class="text-xs font-medium text-warm-muted tracking-widest uppercase">Oferta & Cennik ⁰⁴</span>
+                <h2 class="text-3xl md:text-4xl font-light text-warm-dark mt-1">Dedykowane zabiegi</h2>
+            </div>
+
+            <div class="grid md:grid-cols-2 gap-6">
+                <!-- Rzęsy -->
+                <div class="space-y-4">
+                    <h3 class="text-lg font-semibold text-warm-dark flex items-center justify-between border-b border-warm-border pb-3">
+                        <span>Stylizacja Rzęs</span>
+                        <span class="text-xs font-normal text-warm-muted">Rzęsy ⁰¹</span>
+                    </h3>
+                    
+                    <div class="p-6 rounded-3xl bg-warm-card flex justify-between items-center group hover:bg-warm-border/50 transition-colors">
+                        <div>
+                            <h4 class="font-medium text-warm-dark">Rzęsy 1:1 (Classic Natural)</h4>
+                            <p class="text-xs text-warm-muted mt-1">Czas trwania: 2h 00m</p>
+                        </div>
+                        <div class="text-right flex items-center gap-4">
+                            <span class="font-semibold text-warm-dark">160 PLN</span>
+                            <span class="w-8 h-8 rounded-full bg-white flex items-center justify-center text-xs font-bold text-warm-dark">+</span>
                         </div>
                     </div>
-                    <h3 style="color: var(--sage-dark); margin-top: 24px;">Laminacja Brwi + Geometria</h3>
-                    <p style="color: var(--text-light); margin-top: 8px; font-size: 14px;">Profesjonalna laminacja z precyzyjną geometrią. Efekt utrzymuje się 6-8 tygodni.</p>
-                </div>
 
-                <!-- Slider 2 -->
-                <div class="fade-in-up" style="animation-delay: 0.1s;">
-                    <div class="comparison-slider" id="slider2">
-                        <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=600&q=80" alt="Before">
-                        <div class="img-wrapper">
-                            <div class="img-before" style="clip-path: polygon(0 0, 50% 0, 50% 100%, 0 100%);">
-                                <img src="https://images.unsplash.com/photo-1608571423902-eed4a5ad8108?w=600&q=80" alt="After">
-                            </div>
-                            <div class="slider-line" id="line2"></div>
-                            <div class="slider-handle" id="handle2"></div>
+                    <div class="p-6 rounded-3xl bg-warm-card flex justify-between items-center group hover:bg-warm-border/50 transition-colors">
+                        <div>
+                            <h4 class="font-medium text-warm-dark">Objętości 2D-4D (Soft Volume)</h4>
+                            <p class="text-xs text-warm-muted mt-1">Czas trwania: 2h 15m</p>
+                        </div>
+                        <div class="text-right flex items-center gap-4">
+                            <span class="font-semibold text-warm-dark">190 PLN</span>
+                            <span class="w-8 h-8 rounded-full bg-white flex items-center justify-center text-xs font-bold text-warm-dark">+</span>
                         </div>
                     </div>
-                    <h3 style="color: var(--sage-dark); margin-top: 24px;">Rzęsy 2D-3D Soft Volume</h3>
-                    <p style="color: var(--text-light); margin-top: 8px; font-size: 14px;">Delikatne, naturalne rzęsy. Całkowita transformacja spojrzenia z subtelnym wyglądem.</p>
+
+                    <div class="p-6 rounded-3xl bg-warm-card flex justify-between items-center group hover:bg-warm-border/50 transition-colors">
+                        <div>
+                            <h4 class="font-medium text-warm-dark">Laminacja Rzęs + Botoks</h4>
+                            <p class="text-xs text-warm-muted mt-1">Czas trwania: 1h 15m</p>
+                        </div>
+                        <div class="text-right flex items-center gap-4">
+                            <span class="font-semibold text-warm-dark">140 PLN</span>
+                            <span class="w-8 h-8 rounded-full bg-white flex items-center justify-center text-xs font-bold text-warm-dark">+</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Brwi -->
+                <div class="space-y-4">
+                    <h3 class="text-lg font-semibold text-warm-dark flex items-center justify-between border-b border-warm-border pb-3">
+                        <span>Architektura & Geometria Brwi</span>
+                        <span class="text-xs font-normal text-warm-muted">Brwi ⁰²</span>
+                    </h3>
+
+                    <div class="p-6 rounded-3xl bg-warm-card flex justify-between items-center group hover:bg-warm-border/50 transition-colors">
+                        <div>
+                            <h4 class="font-medium text-warm-dark">Laminacja & Architektura Brwi</h4>
+                            <p class="text-xs text-warm-muted mt-1">Czas trwania: 1h 00m</p>
+                        </div>
+                        <div class="text-right flex items-center gap-4">
+                            <span class="font-semibold text-warm-dark">130 PLN</span>
+                            <span class="w-8 h-8 rounded-full bg-white flex items-center justify-center text-xs font-bold text-warm-dark">+</span>
+                        </div>
+                    </div>
+
+                    <div class="p-6 rounded-3xl bg-warm-card flex justify-between items-center group hover:bg-warm-border/50 transition-colors">
+                        <div>
+                            <h4 class="font-medium text-warm-dark">Henna Pudrowa z Geometrią</h4>
+                            <p class="text-xs text-warm-muted mt-1">Czas trwania: 0h 50m</p>
+                        </div>
+                        <div class="text-right flex items-center gap-4">
+                            <span class="font-semibold text-warm-dark">110 PLN</span>
+                            <span class="w-8 h-8 rounded-full bg-white flex items-center justify-center text-xs font-bold text-warm-dark">+</span>
+                        </div>
+                    </div>
+
+                    <div class="p-6 rounded-3xl bg-warm-card flex justify-between items-center group hover:bg-warm-border/50 transition-colors">
+                        <div>
+                            <h4 class="font-medium text-warm-dark">Regulacja Woskiem / Pęsetą</h4>
+                            <p class="text-xs text-warm-muted mt-1">Czas trwania: 0h 30m</p>
+                        </div>
+                        <div class="text-right flex items-center gap-4">
+                            <span class="font-semibold text-warm-dark">50 PLN</span>
+                            <span class="w-8 h-8 rounded-full bg-white flex items-center justify-center text-xs font-bold text-warm-dark">+</span>
+                        </div>
+                    </div>
                 </div>
             </div>
-        </div>
-    </section>
+        </section>
 
-    <!-- About Section -->
-    <section id="about" class="section">
-        <div class="container">
-            <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 60px; align-items: center;">
-                <div class="fade-in-up">
-                    <img src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=500&q=80" alt="Stylistka" style="border-radius: 28px; width: 100%; box-shadow: 0 20px 60px rgba(27, 59, 43, 0.15);">
+        <!-- INSTAGRAM FEED -->
+        <section id="instagram" class="space-y-8">
+            <div class="flex items-center justify-between">
+                <div>
+                    <span class="text-xs font-medium text-warm-muted tracking-widest uppercase">Instagram Live ⁰⁵</span>
+                    <h2 class="text-3xl md:text-4xl font-light text-warm-dark mt-1">Ostatnie stylizacje</h2>
                 </div>
-                <div class="fade-in-up" style="animation-delay: 0.1s;">
-                    <div class="pill-badge">👩‍💼 o mnie</div>
-                    <h2 style="color: var(--sage-dark); margin-bottom: 24px;">Touch the World<br>of Beautiful Eyes</h2>
-                    <p style="color: var(--text-light); line-height: 1.8; margin-bottom: 20px;">
-                        Z pasją do piękna od 8 lat. Każda klientka to wyjątkowa osoba, której chcę pomóc odkryć swoje naturalne piękno. Specjalizuję się w indywidualnym podejściu.
+                <a href="https://instagram.com" target="_blank" class="hidden sm:inline-flex px-5 py-2 rounded-full border border-warm-border text-xs font-medium hover:bg-warm-card transition-colors">
+                    @twoj_instagram →
+                </a>
+            </div>
+
+            <!-- Instagram Grid Placeholder (Behold.so integration ready) -->
+            <div class="grid grid-cols-2 md:grid-cols-4 gap-4">
+                <div class="aspect-square rounded-2xl overflow-hidden bg-warm-card group relative">
+                    <img src="https://images.unsplash.com/photo-1560066984-138dadb4c035?q=80&w=600&auto=format&fit=crop" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300">
+                </div>
+                <div class="aspect-square rounded-2xl overflow-hidden bg-warm-card group relative">
+                    <img src="https://images.unsplash.com/photo-1522337360788-8b13dee7a37e?q=80&w=600&auto=format&fit=crop" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300">
+                </div>
+                <div class="aspect-square rounded-2xl overflow-hidden bg-warm-card group relative">
+                    <img src="https://images.unsplash.com/photo-1512496015851-a90fb38ba796?q=80&w=600&auto=format&fit=crop" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300">
+                </div>
+                <div class="aspect-square rounded-2xl overflow-hidden bg-warm-card group relative">
+                    <img src="https://images.unsplash.com/photo-1583001809873-a1284d5630be?q=80&w=600&auto=format&fit=crop" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300">
+                </div>
+            </div>
+        </section>
+
+        <!-- CONTACT & FORM SECTION -->
+        <section id="contact" class="bg-warm-card rounded-[2.5rem] p-8 md:p-12 grid md:grid-cols-2 gap-12">
+            <div class="space-y-6 flex flex-col justify-between">
+                <div>
+                    <span class="text-xs font-medium text-warm-muted tracking-widest uppercase">Kontakt ⁰⁶</span>
+                    <h2 class="text-3xl md:text-5xl font-light text-warm-dark mt-2 leading-tight">
+                        Umów się na <br><span class="font-semibold">wizytę</span>
+                    </h2>
+                    <p class="text-warm-muted text-sm mt-4">
+                        Wypełnij formularz lub skontaktuj się ze mną bezpośrednio przez Instagram DM lub telefon.
                     </p>
-
-                    <div style="display: grid; grid-template-columns: repeat(2, 1fr); gap: 16px; margin-top: 32px;">
-                        <div style="background: var(--sage-light); padding: 20px; border-radius: 20px; text-align: center;">
-                            <div style="font-size: 32px; font-weight: 800; color: var(--sage-dark);">500+</div>
-                            <div style="font-size: 13px; color: var(--text-light); margin-top: 4px; font-weight: 600;">Zadowolonych Klientek</div>
-                        </div>
-                        <div style="background: var(--sage-light); padding: 20px; border-radius: 20px; text-align: center;">
-                            <div style="font-size: 32px; font-weight: 800; color: var(--sage-dark);">100%</div>
-                            <div style="font-size: 13px; color: var(--text-light); margin-top: 4px; font-weight: 600;">Gwarancja Satysfakcji</div>
-                        </div>
-                    </div>
-
-                    <h3 style="color: var(--sage-dark); margin-top: 40px; margin-bottom: 20px;">Certyfikaty & Szkolenia</h3>
-                    <div style="display: grid; grid-template-columns: repeat(2, 1fr); gap: 12px;">
-                        <div style="background: linear-gradient(135deg, var(--sage-dark) 0%, var(--sage-dark-alt) 100%); color: white; padding: 16px; border-radius: 16px; text-align: center; font-size: 13px; font-weight: 600;">
-                            🎓 Laminacja Rzęs
-                        </div>
-                        <div style="background: linear-gradient(135deg, var(--sage-dark) 0%, var(--sage-dark-alt) 100%); color: white; padding: 16px; border-radius: 16px; text-align: center; font-size: 13px; font-weight: 600;">
-                            🎓 Rozszerzanie Rzęs
-                        </div>
-                        <div style="background: linear-gradient(135deg, var(--sage-dark) 0%, var(--sage-dark-alt) 100%); color: white; padding: 16px; border-radius: 16px; text-align: center; font-size: 13px; font-weight: 600;">
-                            🎓 Geometria Brwi
-                        </div>
-                        <div style="background: linear-gradient(135deg, var(--sage-dark) 0%, var(--sage-dark-alt) 100%); color: white; padding: 16px; border-radius: 16px; text-align: center; font-size: 13px; font-weight: 600;">
-                            🎓 Henna Pudrowa
-                        </div>
-                    </div>
                 </div>
-            </div>
-        </div>
-    </section>
 
-    <!-- Services Section -->
-    <section id="services" class="section" style="background: var(--cream-alt);">
-        <div class="container">
-            <div class="pill-badge">💰 usługi & cennik</div>
-            <h2 style="color: var(--sage-dark); margin-bottom: 40px;">WHEN LASHES ARE<br>NOT JUST AN OBJECT</h2>
-
-            <div class="tab-buttons">
-                <button class="tab-btn active" onclick="switchTab('lashes', this)">Stylizacja Rzęs</button>
-                <button class="tab-btn" onclick="switchTab('eyebrows', this)">Stylizacja Brwi</button>
-            </div>
-
-            <!-- Lashes Tab -->
-            <div id="tab-lashes" class="tab-content active">
-                <div class="grid-cols-3">
-                    <div class="service-card fade-in-up">
-                        <div>
-                            <div class="service-icon">1️⃣</div>
-                            <div class="service-title">Rzęsy 1:1 Professional</div>
-                            <div class="service-description">Klasyczne rozszerzanie – naturalny wygląd na każdy dzień.</div>
-                        </div>
-                        <div class="service-meta">
-                            <div>
-                                <div class="service-price">150 zł</div>
-                                <div class="service-time">⏱️ 2h</div>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="service-card fade-in-up" style="animation-delay: 0.1s;">
-                        <div>
-                            <div class="service-icon">2️⃣</div>
-                            <div class="service-title">Objętości 2D-4D</div>
-                            <div class="service-description">Wolumetryczne rzęsy – spektakularny efekt gęstości.</div>
-                        </div>
-                        <div class="service-meta">
-                            <div>
-                                <div class="service-price">180 zł</div>
-                                <div class="service-time">⏱️ 2h 15m</div>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="service-card fade-in-up" style="animation-delay: 0.2s;">
-                        <div>
-                            <div class="service-icon">✨</div>
-                            <div class="service-title">Laminacja + Botoks</div>
-                            <div class="service-description">Zabiegi pielęgnacyjne – regeneracja struktury rzęs.</div>
-                        </div>
-                        <div class="service-meta">
-                            <div>
-                                <div class="service-price">140 zł</div>
-                                <div class="service-time">⏱️ 1h 15m</div>
-                            </div>
-                        </div>
-                    </div>
+                <div class="space-y-3 pt-4">
+                    <div class="text-xs font-medium text-warm-muted uppercase">Lokalizacja & Telefon</div>
+                    <div class="text-sm font-medium text-warm-dark">Warszawa, ul. Piękna 12</div>
+                    <div class="text-sm font-medium text-warm-dark">+48 123 456 789</div>
                 </div>
             </div>
 
-            <!-- Eyebrows Tab -->
-            <div id="tab-eyebrows" class="tab-content">
-                <div class="grid-cols-3">
-                    <div class="service-card fade-in-up">
-                        <div>
-                            <div class="service-icon">🎯</div>
-                            <div class="service-title">Laminacja & Architektura</div>
-                            <div class="service-description">Kompleksowy zabieg – idealny kształt dostosowany do twarzy.</div>
-                        </div>
-                        <div class="service-meta">
-                            <div>
-                                <div class="service-price">120 zł</div>
-                                <div class="service-time">⏱️ 1h</div>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="service-card fade-in-up" style="animation-delay: 0.1s;">
-                        <div>
-                            <div class="service-icon">🎨</div>
-                            <div class="service-title">Henna Pudrowa</div>
-                            <div class="service-description">Naturalna barwa henny z precyzyjnym kształtem brwi.</div>
-                        </div>
-                        <div class="service-meta">
-                            <div>
-                                <div class="service-price">100 zł</div>
-                                <div class="service-time">⏱️ 45m</div>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="service-card fade-in-up" style="animation-delay: 0.2s;">
-                        <div>
-                            <div class="service-icon">✂️</div>
-                            <div class="service-title">Korekcja Brwi</div>
-                            <div class="service-description">Strzyżenie, modelowanie i zafinalizowanie kształtu.</div>
-                        </div>
-                        <div class="service-meta">
-                            <div>
-                                <div class="service-price">50 zł</div>
-                                <div class="service-time">⏱️ 30m</div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Gallery Section -->
-    <section id="gallery" class="section">
-        <div class="container">
-            <div class="pill-badge">📸 portfolio</div>
-            <h2 style="color: var(--sage-dark); margin-bottom: 40px;">INBRED LINE ONLY<br>Our Best Works</h2>
-
-            <div class="gallery-grid">
-                <div class="gallery-item fade-in-up">
-                    <img src="https://images.unsplash.com/photo-1599919957568-bc4755fbcabc?w=400&q=80" alt="Portfolio">
-                    <div class="gallery-overlay"></div>
-                </div>
-                <div class="gallery-item fade-in-up" style="animation-delay: 0.1s;">
-                    <img src="https://images.unsplash.com/photo-1608571423902-eed4a5ad8108?w=400&q=80" alt="Portfolio">
-                    <div class="gallery-overlay"></div>
-                </div>
-                <div class="gallery-item fade-in-up" style="animation-delay: 0.2s;">
-                    <img src="https://images.unsplash.com/photo-1512290923902-8a647f05a606?w=400&q=80" alt="Portfolio">
-                    <div class="gallery-overlay"></div>
-                </div>
-                <div class="gallery-item fade-in-up" style="animation-delay: 0.3s;">
-                    <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=400&q=80" alt="Portfolio">
-                    <div class="gallery-overlay"></div>
-                </div>
-                <div class="gallery-item fade-in-up" style="animation-delay: 0.4s;">
-                    <img src="https://images.unsplash.com/photo-1516975080664-ed2fc6a32937?w=400&q=80" alt="Portfolio">
-                    <div class="gallery-overlay"></div>
-                </div>
-                <div class="gallery-item fade-in-up" style="animation-delay: 0.5s;">
-                    <img src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=400&q=80" alt="Portfolio">
-                    <div class="gallery-overlay"></div>
-                </div>
-            </div>
-
-            <div style="text-align: center; margin-top: 40px;">
-                <a href="https://instagram.com" target="_blank" class="btn-primary">Obserwuj nas na Instagramie</a>
-            </div>
-        </div>
-    </section>
-
-    <!-- Contact Section -->
-    <section id="contact" class="section" style="background: var(--cream-alt);">
-        <div class="container">
-            <div class="pill-badge">📞 kontakt</div>
-            <h2 style="color: var(--sage-dark); margin-bottom: 40px;">CONNECT WITH NATURE<br>Umów swoją wizytę</h2>
-
-            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 24px; margin-bottom: 40px;">
-                <div class="fade-in-up" style="background: white; padding: 32px; border-radius: 28px; text-align: center; border: 2px solid rgba(27, 59, 43, 0.1);">
-                    <div style="font-size: 40px; margin-bottom: 16px;">📞</div>
-                    <h3 style="color: var(--sage-dark);">Zadzwoń</h3>
-                    <p style="color: var(--text-light); margin: 12px 0; font-size: 14px;">Bezpośrednia rezerwacja</p>
-                    <a href="tel:+48123456789" class="btn-primary">+48 123 456 789</a>
+            <!-- Web3Forms Integration -->
+            <form action="https://api.web3forms.com/submit" method="POST" class="space-y-4">
+                <input type="hidden" name="access_key" value="YOUR_WEB3FORMS_ACCESS_KEY">
+                
+                <div>
+                    <label class="block text-xs font-medium text-warm-muted mb-1">Twoje Imię</label>
+                    <input type="text" name="name" required class="w-full bg-warm-bg border border-warm-border rounded-2xl px-4 py-3 text-sm text-warm-dark focus:outline-none focus:border-warm-dark transition-colors" placeholder="np. Anna Kowalska">
                 </div>
 
-                <div class="fade-in-up" style="background: white; padding: 32px; border-radius: 28px; text-align: center; border: 2px solid rgba(27, 59, 43, 0.1); animation-delay: 0.1s;">
-                    <div style="font-size: 40px; margin-bottom: 16px;">💬</div>
-                    <h3 style="color: var(--sage-dark);">Instagram</h3>
-                    <p style="color: var(--text-light); margin: 12px 0; font-size: 14px;">Wiadomość na IG</p>
-                    <a href="https://instagram.com/beautystudio" target="_blank" class="btn-primary">Napisz DM</a>
+                <div>
+                    <label class="block text-xs font-medium text-warm-muted mb-1">Numer Telefonu</label>
+                    <input type="tel" name="phone" required class="w-full bg-warm-bg border border-warm-border rounded-2xl px-4 py-3 text-sm text-warm-dark focus:outline-none focus:border-warm-dark transition-colors" placeholder="+48 000 000 000">
                 </div>
 
-                <div class="fade-in-up" style="background: white; padding: 32px; border-radius: 28px; text-align: center; border: 2px solid rgba(27, 59, 43, 0.1); animation-delay: 0.2s;">
-                    <div style="font-size: 40px; margin-bottom: 16px;">📍</div>
-                    <h3 style="color: var(--sage-dark);">Lokalizacja</h3>
-                    <p style="color: var(--text-light); margin: 12px 0; font-size: 14px;">ul. Piękna 42, Warszawa</p>
-                    <a href="https://maps.google.com/?q=Warszawa" target="_blank" class="btn-primary">Otwórz Mapę</a>
+                <div>
+                    <label class="block text-xs font-medium text-warm-muted mb-1">Wybierz Zabieg</label>
+                    <select name="service" class="w-full bg-warm-bg border border-warm-border rounded-2xl px-4 py-3 text-sm text-warm-dark focus:outline-none focus:border-warm-dark transition-colors">
+                        <option>Rzęsy 1:1 Classic</option>
+                        <option>Objętości 2D-4D</option>
+                        <option>Laminacja Rzęs</option>
+                        <option>Laminacja Brwi</option>
+                        <option>Henna Pudrowa</option>
+                    </select>
                 </div>
-            </div>
 
-            <!-- Contact Form -->
-            <div class="fade-in-up" style="max-width: 600px; margin: 0 auto;">
-                <div class="glass" style="padding: 40px; border-radius: 28px;">
-                    <h3 style="color: var(--sage-dark); margin-bottom: 24px;">Formularz Kontaktowy</h3>
-                    <form id="contactForm" onsubmit="handleFormSubmit(event)">
-                        <div style="margin-bottom: 20px;">
-                            <label style="display: block; font-weight: 700; margin-bottom: 8px; color: var(--sage-dark); font-size: 14px;">Imię i Nazwisko *</label>
-                            <input type="text" name="name" class="form-input" placeholder="Anna Kowalski" required>
-                        </div>
-
-                        <div style="margin-bottom: 20px;">
-                            <label style="display: block; font-weight: 700; margin-bottom: 8px; color: var(--sage-dark); font-size: 14px;">Numer Telefonu *</label>
-                            <input type="tel" name="phone" class="form-input" placeholder="+48 123 456 789" required>
-                        </div>
-
-                        <div style="margin-bottom: 20px;">
-                            <label style="display: block; font-weight: 700; margin-bottom: 8px; color: var(--sage-dark); font-size: 14px;">Email</label>
-                            <input type="email" name="email" class="form-input" placeholder="anna@example.com">
-                        </div>
-
-                        <div style="margin-bottom: 20px;">
-                            <label style="display: block; font-weight: 700; margin-bottom: 8px; color: var(--sage-dark); font-size: 14px;">Wybierz Usługę *</label>
-                            <select name="service" class="form-input" required>
-                                <option value="">-- Wybierz usługę --</option>
-                                <optgroup label="Rzęsy">
-                                    <option value="Rzęsy 1:1 Professional">Rzęsy 1:1 Professional</option>
-                                    <option value="Objętości 2D-4D">Objętości 2D-4D</option>
-                                    <option value="Laminacja Rzęs + Botoks">Laminacja Rzęs + Botoks</option>
-                                </optgroup>
-                                <optgroup label="Brwi">
-                                    <option value="Laminacja & Architektura">Laminacja & Architektura</option>
-                                    <option value="Henna Pudrowa">Henna Pudrowa</option>
-                                    <option value="Korekcja Brwi">Korekcja Brwi</option>
-                                </optgroup>
-                            </select>
-                        </div>
-
-                        <div style="margin-bottom: 24px;">
-                            <label style="display: block; font-weight: 700; margin-bottom: 8px; color: var(--sage-dark); font-size: 14px;">Wiadomość</label>
-                            <textarea name="message" class="form-input" placeholder="Powiedz mi coś o sobie..." rows="5" style="resize: none;"></textarea>
-                        </div>
-
-                        <button type="submit" class="btn-primary" style="width: 100%; justify-content: center;">Wyślij Zapytanie</button>
-                    </form>
+                <div>
+                    <label class="block text-xs font-medium text-warm-muted mb-1">Wiadomość (opcjonalnie)</label>
+                    <textarea name="message" rows="3" class="w-full bg-warm-bg border border-warm-border rounded-2xl px-4 py-3 text-sm text-warm-dark focus:outline-none focus:border-warm-dark transition-colors" placeholder="Preferowane dni lub godziny..."></textarea>
                 </div>
-            </div>
-        </div>
-    </section>
 
-    <!-- Sticky Mobile Bar -->
-    <div class="sticky-mobile-bar">
-        <a href="tel:+48123456789" class="btn-primary" style="flex: 1; text-align: center; text-decoration: none; justify-content: center;">📞 Zadzwoń</a>
-        <button class="btn-outline" style="flex: 1;" onclick="document.getElementById('contact').scrollIntoView({behavior: 'smooth'})">💬 Napisz</button>
-    </div>
+                <button type="submit" class="w-full py-3.5 rounded-full bg-warm-dark text-white font-medium text-sm hover:opacity-90 transition-opacity">
+                    Wyślij zgłoszenie
+                </button>
+            </form>
+        </section>
 
-    <!-- Install Prompt -->
-    <div class="install-prompt" id="installPrompt">
-        <div style="display: flex; gap: 16px;">
-            <div style="font-size: 40px; line-height: 1;">📱</div>
-            <div style="flex: 1;">
-                <h3 style="color: var(--sage-dark); font-size: 18px; margin-bottom: 8px;">Dodaj do ekranu głównego</h3>
-                <p style="color: var(--text-light); font-size: 13px; margin-bottom: 12px; line-height: 1.4;">Zainstaluj aplikację na telefonie. Szybki dostęp do cennika i rezerwacji zawsze pod ręką!</p>
-                <div style="display: flex; gap: 8px;">
-                    <button class="btn-primary" style="font-size: 13px; padding: 10px 16px;" onclick="installPWA()">Zainstaluj</button>
-                    <button style="background: none; border: none; cursor: pointer; color: var(--text-light); font-weight: 600; font-size: 13px;" onclick="closeInstallPrompt()">Nie teraz</button>
-                </div>
-            </div>
-        </div>
-    </div>
+    </main>
 
-    <!-- Footer -->
-    <footer style="background: var(--sage-dark); color: white; padding: 40px 24px; text-align: center;">
-        <div class="container">
-            <div style="margin-bottom: 20px;">
-                <div style="font-weight: 800; font-size: 20px;">Beauty Lashes Studio</div>
-                <div style="font-size: 13px; opacity: 0.8;">Profesjonalna Stylizacja Rzęs & Brwi</div>
-            </div>
-            <div style="display: flex; justify-content: center; gap: 24px; margin: 20px 0; flex-wrap: wrap; font-size: 14px;">
-                <a href="#home" style="color: white; text-decoration: none; opacity: 0.8; transition: opacity 0.3s;" onmouseover="this.style.opacity='1'" onmouseout="this.style.opacity='0.8'">Home</a>
-                <a href="#services" style="color: white; text-decoration: none; opacity: 0.8; transition: opacity 0.3s;" onmouseover="this.style.opacity='1'" onmouseout="this.style.opacity='0.8'">Usługi</a>
-                <a href="#gallery" style="color: white; text-decoration: none; opacity: 0.8; transition: opacity 0.3s;" onmouseover="this.style.opacity='1'" onmouseout="this.style.opacity='0.8'">Galeria</a>
-                <a href="#contact" style="color: white; text-decoration: none; opacity: 0.8; transition: opacity 0.3s;" onmouseover="this.style.opacity='1'" onmouseout="this.style.opacity='0.8'">Kontakt</a>
-            </div>
-            <div style="border-top: 1px solid rgba(255, 255, 255, 0.2); padding-top: 20px; margin-top: 20px; font-size: 12px; opacity: 0.8;">
-                © 2024 Beauty Lashes Studio. Wszystkie prawa zastrzeżone. | Strona stworzona z ❤️
-            </div>
-        </div>
+    <!-- FOOTER -->
+    <footer class="max-w-6xl mx-auto px-6 py-8 mt-12 text-center text-xs text-warm-muted border-t border-warm-border">
+        <p>© 2026 Studio Stylizacji Rzęs & Brwi. Wszystkie prawa zastrzeżone.</p>
     </footer>
 
+    <!-- STICKY MOBILE BOTTOM BAR -->
+    <div class="fixed bottom-4 left-4 right-4 bg-warm-dark text-white rounded-full p-2.5 flex justify-between items-center md:hidden z-40 shadow-xl border border-white/10">
+        <a href="tel:+48123456789" class="flex-1 text-center py-2 text-xs font-medium border-r border-white/20">
+            📞 Zadzwoń
+        </a>
+        <a href="#contact" class="flex-1 text-center py-2 text-xs font-medium">
+            ✨ Umów wizytę
+        </a>
+    </div>
+
+    <!-- PWA INSTALL PROMPT POPUP -->
+    <div id="pwa-modal" class="fixed bottom-20 left-4 right-4 md:left-auto md:right-8 md:w-96 bg-white border border-warm-border rounded-3xl p-5 shadow-2xl z-50 hidden">
+        <div class="flex items-start justify-between gap-3">
+            <div class="space-y-1">
+                <h4 class="text-sm font-semibold text-warm-dark">Zainstaluj naszą aplikację</h4>
+                <p class="text-xs text-warm-muted">Dodaj stronę do ekranu głównego, aby mieć szybki dostęp do cennika i rezerwacji offline.</p>
+            </div>
+            <button id="pwa-close" class="text-warm-muted hover:text-warm-dark text-lg font-bold">×</button>
+        </div>
+        <button id="pwa-install-btn" class="w-full mt-4 py-2.5 rounded-full bg-warm-dark text-white text-xs font-medium">
+            Dodaj do ekranu głównego
+        </button>
+    </div>
+
+    <!-- JAVASCRIPT LOGIC -->
     <script>
-        // Service Worker Registration
-        if ('serviceWorker' in navigator) {
-            navigator.serviceWorker.register('sw.js').catch(err => console.log('SW registration failed:', err));
-        }
+        // 1. BEFORE / AFTER SLIDER LOGIC
+        const container = document.getElementById('slider-container');
+        const clipper = document.getElementById('slider-clipper');
+        const handle = document.getElementById('slider-handle');
+        const beforeImg = document.getElementById('slider-before-img');
 
-        // Mobile Menu
-        const mobileMenuBtn = document.getElementById('mobile-menu-btn');
-        const mobileMenu = document.getElementById('mobile-menu');
-
-        if (window.innerWidth <= 768) {
-            mobileMenuBtn.style.display = 'block';
-        }
-
-        if (mobileMenuBtn) {
-            mobileMenuBtn.addEventListener('click', () => {
-                mobileMenu.classList.toggle('active');
-            });
-        }
-
-        function closeMobileMenu() {
-            mobileMenu.classList.remove('active');
-        }
-
-        // Navbar scroll effect
-        window.addEventListener('scroll', () => {
-            const nav = document.querySelector('nav');
-            if (window.scrollY > 50) {
-                nav.classList.add('scrolled');
-            } else {
-                nav.classList.remove('scrolled');
+        function updateSliderWidth() {
+            if (container && beforeImg) {
+                beforeImg.style.width = container.offsetWidth + 'px';
             }
+        }
+        window.addEventListener('resize', updateSliderWidth);
+        updateSliderWidth();
+
+        let isDragging = false;
+
+        function setSliderPosition(x) {
+            const rect = container.getBoundingClientRect();
+            let offsetX = x - rect.left;
+            if (offsetX < 0) offsetX = 0;
+            if (offsetX > rect.width) offsetX = rect.width;
+            
+            const percentage = (offsetX / rect.width) * 100;
+            clipper.style.width = percentage + '%';
+            handle.style.left = percentage + '%';
+        }
+
+        container.addEventListener('mousedown', () => isDragging = true);
+        window.addEventListener('mouseup', () => isDragging = false);
+        window.addEventListener('mousemove', (e) => {
+            if (!isDragging) return;
+            setSliderPosition(e.clientX);
         });
 
-        // Before/After Slider
-        function initSlider(sliderId, handleId, lineId) {
-            const slider = document.getElementById(sliderId);
-            const handle = document.getElementById(handleId);
-            const line = document.getElementById(lineId);
-            const beforeImg = slider.querySelector('.img-before');
+        container.addEventListener('touchstart', () => isDragging = true);
+        window.addEventListener('touchend', () => isDragging = false);
+        window.addEventListener('touchmove', (e) => {
+            if (!isDragging) return;
+            setSliderPosition(e.touches[0].clientX);
+        });
 
-            let isActive = false;
-
-            function updateSliderPosition(e) {
-                if (!isActive) return;
-
-                const rect = slider.getBoundingClientRect();
-                let x = e.clientX - rect.left;
-
-                if (e.touches) {
-                    x = e.touches[0].clientX - rect.left;
-                }
-
-                x = Math.max(0, Math.min(x, rect.width));
-
-                const percentage = (x / rect.width) * 100;
-                beforeImg.style.clipPath = `polygon(0 0, ${percentage}% 0, ${percentage}% 100%, 0 100%)`;
-                handle.style.left = percentage + '%';
-                line.style.left = percentage + '%';
-            }
-
-            handle.addEventListener('mousedown', () => { isActive = true; });
-            handle.addEventListener('touchstart', () => { isActive = true; });
-
-            document.addEventListener('mouseup', () => { isActive = false; });
-            document.addEventListener('touchend', () => { isActive = false; });
-
-            document.addEventListener('mousemove', updateSliderPosition);
-            document.addEventListener('touchmove', updateSliderPosition);
-
-            slider.addEventListener('click', (e) => {
-                const rect = slider.getBoundingClientRect();
-                const x = e.clientX - rect.left;
-                const percentage = (x / rect.width) * 100;
-                beforeImg.style.clipPath = `polygon(0 0, ${percentage}% 0, ${percentage}% 100%, 0 100%)`;
-                handle.style.left = percentage + '%';
-                line.style.left = percentage + '%';
-            });
-        }
-
-        initSlider('slider1', 'handle1', 'line1');
-        initSlider('slider2', 'handle2', 'line2');
-
-        // Tabs
-        function switchTab(tabName, btn) {
-            document.querySelectorAll('.tab-content').forEach(tab => tab.classList.remove('active'));
-            document.querySelectorAll('.tab-btn').forEach(button => button.classList.remove('active'));
-
-            document.getElementById('tab-' + tabName).classList.add('active');
-            btn.classList.add('active');
-        }
-
-        // Install PWA
+        // 2. PWA INSTALL LOGIC & SERVICE WORKER
         let deferredPrompt;
+        const pwaModal = document.getElementById('pwa-modal');
+        const installBtn = document.getElementById('pwa-install-btn');
+        const closeBtn = document.getElementById('pwa-close');
 
         window.addEventListener('beforeinstallprompt', (e) => {
             e.preventDefault();
             deferredPrompt = e;
             setTimeout(() => {
-                if (!sessionStorage.getItem('installPromptDismissed')) {
-                    document.getElementById('installPrompt').classList.add('show');
-                }
+                pwaModal.classList.remove('hidden');
             }, 3000);
         });
 
-        function installPWA() {
+        installBtn.addEventListener('click', async () => {
             if (deferredPrompt) {
                 deferredPrompt.prompt();
-                deferredPrompt.userChoice.then((choiceResult) => {
-                    if (choiceResult.outcome === 'accepted') {
-                        showMessage('Aplikacja zainstalowana!', false);
-                    }
-                    deferredPrompt = null;
-                    closeInstallPrompt();
-                });
+                const { outcome } = await deferredPrompt.userChoice;
+                deferredPrompt = null;
+                pwaModal.classList.add('hidden');
             }
-        }
-
-        function closeInstallPrompt() {
-            document.getElementById('installPrompt').classList.remove('show');
-            sessionStorage.setItem('installPromptDismissed', 'true');
-        }
-
-        // Contact Form
-        function handleFormSubmit(e) {
-            e.preventDefault();
-
-            const form = e.target;
-            const formData = new FormData(form);
-            formData.append('access_key', 'YOUR_WEB3FORMS_ACCESS_KEY_HERE');
-
-            const submitBtn = form.querySelector('button[type="submit"]');
-            const originalText = submitBtn.textContent;
-            submitBtn.textContent = 'Wysyłanie...';
-            submitBtn.disabled = true;
-
-            fetch('https://api.web3forms.com/submit', {
-                method: 'POST',
-                body: formData
-            })
-            .then(response => response.json())
-            .then(data => {
-                if (data.success) {
-                    showMessage('Dziękujemy! Wiadomość wysłana.', false);
-                    form.reset();
-                } else {
-                    showMessage('Błąd przy wysyłaniu.', true);
-                }
-            })
-            .catch(error => {
-                showMessage('Błąd: ' + error.message, true);
-            })
-            .finally(() => {
-                submitBtn.textContent = originalText;
-                submitBtn.disabled = false;
-            });
-        }
-
-        function showMessage(text, isError = false) {
-            const message = document.createElement('div');
-            message.className = `message ${isError ? 'error' : ''}`;
-            message.textContent = text;
-            document.body.appendChild(message);
-
-            setTimeout(() => {
-                message.style.opacity = '0';
-                message.style.transform = 'translateY(-20px)';
-                message.style.transition = 'all 0.3s ease';
-                setTimeout(() => message.remove(), 300);
-            }, 5000);
-        }
-
-        // Smooth scroll
-        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-            anchor.addEventListener('click', function(e) {
-                if (this.getAttribute('href') !== '#') {
-                    closeMobileMenu();
-                }
-            });
         });
 
-        // Intersection Observer
-        const observerOptions = {
-            threshold: 0.1,
-            rootMargin: '0px 0px -50px 0px'
-        };
-
-        const observer = new IntersectionObserver((entries) => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    entry.target.style.opacity = '1';
-                    entry.target.style.transform = 'translateY(0)';
-                }
-            });
-        }, observerOptions);
-
-        document.querySelectorAll('.fade-in-up').forEach(el => {
-            el.style.opacity = '0';
-            el.style.transform = 'translateY(30px)';
-            el.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
-            observer.observe(el);
+        closeBtn.addEventListener('click', () => {
+            pwaModal.classList.add('hidden');
         });
+
+        // Register Service Worker
+        if ('serviceWorker' in navigator) {
+            window.addEventListener('load', () => {
+                navigator.serviceWorker.register('sw.js')
+                    .then(reg => console.log('SW zarejestrowany!'))
+                    .catch(err => console.log('Błąd SW:', err));
+            });
+        }
     </script>
 </body>
 </html>
