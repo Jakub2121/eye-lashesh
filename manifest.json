@@ -1,0 +1,21 @@
+{
+  "name": "Stylizacja Rzęs & Brwi",
+  "short_name": "Beauty Studio",
+  "start_url": "./index.html",
+  "display": "standalone",
+  "background_color": "#FAF9F5",
+  "theme_color": "#FAF9F5",
+  "orientation": "portrait",
+  "icons": [
+    {
+      "src": "https://images.unsplash.com/photo-1560066984-138dadb4c035?w=192&h=192&fit=crop",
+      "sizes": "192x192",
+      "type": "image/png"
+    },
+    {
+      "src": "https://images.unsplash.com/photo-1560066984-138dadb4c035?w=512&h=512&fit=crop",
+      "sizes": "512x512",
+      "type": "image/png"
+    }
+  ]
+}
